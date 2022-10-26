@@ -1,3 +1,5 @@
+//INCOMPLETE DO NO WRITE
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
