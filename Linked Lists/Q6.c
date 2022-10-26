@@ -1,43 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<math.h>
-struct node
-{
-    int data;
-    struct node* next;
-};
-
-struct node* insert(struct node* head, int item)
-{
-    struct node* ptr = (struct node*)malloc(sizeof(struct node));
-    ptr->data=item;
-    ptr->next=NULL;
-
-    struct node* p = head;
-
-    if(p==NULL)
-        return ptr;
-    else
-    {
-        while(p->next!=NULL)
-        {
-            p=p->next;
-        }
-
-        p->next=ptr;
-    }
-    return head;
-}
-
-void display(struct node *ptr)
-{
-    while (ptr!=NULL)
-    {
-        printf("%d ",ptr->data);
-        ptr = ptr->next;
-    }
-}
-
+#include "insert_functions.h"
 void main()
 {
     int n,i,item;
@@ -52,7 +16,7 @@ void main()
     for(i=0;i<n;i++)
     {
         scanf("%d",&item);
-        list=insert(list,item);
+        list=insertEnd(list,item);
     }
 
     printf("List is : ");
@@ -67,11 +31,11 @@ void main()
         item=pow(item,3);
         if(item%2==0)
         {
-            even=insert(even,item);
+            even=insertEnd(even,item);
         }
         else
         {
-            odd=insert(odd,item);
+            odd=insertEnd(odd,item);
         }
         list=list->next;
     }

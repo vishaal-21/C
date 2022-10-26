@@ -60,7 +60,6 @@ void main()
     printf("Enter size of list : ");
     scanf("%d",&n);
 
-    //struct node* list = (struct node*)calloc(n,sizeof(struct node));
     struct node* list=NULL;
 
     printf("Enter words : ");
