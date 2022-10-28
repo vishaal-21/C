@@ -22,13 +22,19 @@ struct node* create(struct node* head,char name[])
     else
     {
         while(p->next!=NULL)
-        {
             p=p->next;
-        }
 
         p->next=ptr;
     }
     return head;
+}
+void display(struct node *ptr)
+{
+    while (ptr!=NULL)
+    {
+        printf("%s ",ptr->data);
+        ptr = ptr->next;
+    }
 }
 void search(struct node* head)
 {
@@ -39,22 +45,18 @@ void search(struct node* head)
     {
         while(q!=NULL)
         {
-            if(strcmpi(p->data,q->data))
+            if(strcmpi(p->data,q->data)==0)
             {
-
+                //delete and increase counter
+                p->next=q->next;
             }
+            q=q->next;
         }
 
         p=p->next;
     }
-}
-void display(struct node *ptr)
-{
-    while (ptr!=NULL)
-    {
-        printf("%s ",ptr->data);
-        ptr = ptr->next;
-    }
+
+    display(head);
 }
 void main()
 {

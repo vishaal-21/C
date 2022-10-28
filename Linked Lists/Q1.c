@@ -28,20 +28,18 @@ struct node* merge(struct node* list1, struct node* list2)
                 }
                 else
                 {
-                    temp->next=p;
                     q->next=temp;
+                    temp->next=p;
                 }
                 break;
             }
-            q=p;
-            p=p->next;
+            else
+            {
+                q=p;
+                p=p->next;
+            }
         }
         list2=list2->next;
-
-        if(p==NULL && list2!=NULL)
-        {
-            p->next=list2;
-        }
     }
 
     return l1;

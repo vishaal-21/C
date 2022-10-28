@@ -12,7 +12,7 @@ void main()
     struct node* list = (struct node*)calloc(n,sizeof(struct node));
     list=NULL;
 
-    printf("Enter list elements : ");
+    printf("Enter numbers : ");
     for(i=0;i<n;i++)
     {
         scanf("%d",&item);
@@ -30,13 +30,10 @@ void main()
         item=list->data;
         item=pow(item,3);
         if(item%2==0)
-        {
             even=insertEnd(even,item);
-        }
         else
-        {
             odd=insertEnd(odd,item);
-        }
+
         list=list->next;
     }
 

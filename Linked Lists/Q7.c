@@ -20,9 +20,7 @@ struct node* insert(struct node* head, char str[])
     else
     {
         while(p->next!=NULL)
-        {
             p=p->next;
-        }
 
         p->next=ptr;
     }
@@ -51,7 +49,6 @@ int isPalin(char str[])
     }
     return flag;
 }
-
 void main()
 {
     int n,i;
@@ -69,7 +66,7 @@ void main()
         list=insert(list,s);
     }
 
-    printf("List is : ");
+    printf("\nList is : ");
     display(list);
     printf("\n");
 
@@ -80,17 +77,14 @@ void main()
     {
         strcpy(temp,list->data);
         if(isPalin(temp))
-        {
             PSLIST=insert(PSLIST,temp);
-        }
         else
-        {
             NPSLIST=insert(NPSLIST,temp);
-        }
+
         list=list->next;
     }
 
-    printf("Palindrome List : ");
+    printf("\nPalindrome List : ");
     display(PSLIST);
 
     printf("\nNon Palindrome List : ");

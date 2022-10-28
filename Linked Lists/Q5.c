@@ -53,6 +53,7 @@ void main()
             {
                 if((p->data)==item)
                 {
+                    q=p;
                     if(p==list)
                     {
                         p=p->next;
@@ -69,7 +70,6 @@ void main()
                 }
                 else
                 {
-                    q=p;
                     p=p->next;
                 }
             }
