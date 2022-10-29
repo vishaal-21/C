@@ -1,5 +1,3 @@
-//OUTPUT MIGHT BE WRONG
-
 #include<stdio.h>
 #include<stdlib.h>
 #include<math.h>
@@ -42,8 +40,9 @@ void main()
         }
         else if(choice==2)
         {
-            struct node* p = list;
-            struct node* q;
+            struct node* ptr = list;
+            struct node* q = list;
+            struct node* p=(struct node*)malloc(sizeof(struct node));
 
             printf("Enter key element : ");
             scanf("%d",&item);
@@ -51,26 +50,28 @@ void main()
 
             for(i=0;i<n;i++)
             {
-                if((p->data)==item)
+                if(q->data==item)
                 {
-                    q=p;
-                    if(p==list)
+                    if(q==ptr)
                     {
-                        p=p->next;
-                        list=p;
+                        ptr=q->next;
+                        q=ptr;
                     }
-                    else if(p->next==NULL)
+                    else if(q->next==NULL)
                     {
-                        q->next=NULL;
+                        p->next=NULL;
+                        break;
                     }
                     else
                     {
-                        q->next=p->next;
+                        p->next=q->next;
+                        q=q->next;
                     }
                 }
                 else
                 {
-                    p=p->next;
+                    p=q;
+                    q=q->next;
                 }
             }
         }
@@ -80,5 +81,4 @@ void main()
             display(list);
         }
     }while(choice!=0);
-
 }

@@ -1,5 +1,3 @@
-//OUTPUT MIGHT BE WRONG
-
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -31,15 +29,12 @@ struct node* create(char name[])
         else
         {
             while(p->next!=NULL)
-            {
                 p=p->next;
-            }
+
 
             p->next=ptr;
         }
-
     }
-
     return list;
 }
 void display(struct node *ptr)
@@ -52,25 +47,41 @@ void display(struct node *ptr)
 }
 void allVowels(struct node* head)
 {
-    struct node* p = head;
-    struct node* q = (struct node*)malloc(sizeof(struct node));
-    struct node* list = head;
+    struct node* ptr = head;
+    struct node* q = head;
+    struct node* p = (struct node*)malloc(sizeof(struct node));
 
-
-    while(p!=NULL)
+    while(q!=NULL)
     {
-        char ch=p->data;
+        char ch=q->data;
 
         if(isVowel(ch))
         {
-            q->next=p->next;
+            if(q==ptr)
+            {
+                ptr=q->next;
+                q=ptr;
+            }
+            else if(q->next==NULL)
+            {
+                p->next=NULL;
+                break;
+            }
+            else
+            {
+                p->next=q->next;
+                q=q->next;
+            }
         }
-        q=p;
-        p=p->next;
+        else
+        {
+            p=q;
+            q=q->next;
+        }
     }
 
     printf("\nList after editing : ");
-    display(list);
+    display(ptr);
 }
 void main()
 {

@@ -1,5 +1,3 @@
-//INCOMPLETE DO NO WRITE
-
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -36,27 +34,41 @@ void display(struct node *ptr)
         ptr = ptr->next;
     }
 }
+void editDisplay(struct node *ptr)
+{
+    while (ptr!=NULL)
+    {
+        printf("%s,%d  ",ptr->data,ptr->count);
+        ptr = ptr->next;
+    }
+}
 void search(struct node* head)
 {
+    struct node* ptr = head;
     struct node* p = head;
-    struct node* q = head->next;
+    struct node* q = p->next;
 
-    while(p!=NULL)
+    while(ptr!=NULL)
     {
+        p=ptr;
+        q = ptr->next;
+        ptr->count=1;
         while(q!=NULL)
         {
-            if(strcmpi(p->data,q->data)==0)
+            if(strcmpi(ptr->data,q->data)==0)
             {
-                //delete and increase counter
                 p->next=q->next;
+                ptr->count++;
             }
+            p=p->next;
             q=q->next;
         }
 
-        p=p->next;
+        ptr=ptr->next;
     }
 
-    display(head);
+    printf("\nEdited names lists : ");
+    editDisplay(head);
 }
 void main()
 {
