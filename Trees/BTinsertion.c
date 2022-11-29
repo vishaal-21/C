@@ -2,18 +2,14 @@
 #include<stdlib.h>
 #include "BTfunctions.c"
 //------------------------INSERTION-----------------------------------//
-void insert(Node* root, char order[], int ele)
+void insertBT(Node* root, char order[], int ele)
 {
-    Node* temp=getnode();
-    Node* currNode, *parent;
-    temp->data=ele;
-    temp->left=NULL; 
-    temp->right=NULL;
-
+    Node* temp=getnode(ele);
+    Node *parent=NULL;
+    Node* currNode=root;
     int i=0;
-    parent=NULL;
-    currNode=root;
-    while(currNode && order[i])
+
+    while(currNode!=NULL && order[i]!='\0')
     {
         parent=currNode;
         if(order[i]=='L' || order[i]=='l')
@@ -22,13 +18,12 @@ void insert(Node* root, char order[], int ele)
             currNode=currNode->left;
         i++;
     }
-    if(currNode!=NULL || order[i]!='\0')
+    if((currNode!=NULL) || (order[i]!='\0'))
     {
         printf("No insertion possible");
         free(temp);
         return;
     }
-
     if(order[i-1]=='L' || order[i-1]=='l')
             parent->left=temp;
     if(order[i-1]=='R' || order[i-1]=='r')
@@ -52,14 +47,17 @@ void main()
     scanf("%d",&ele);
     printf("Enter addition sequence : ");
     scanf("%s",order);
-    insert(tree,order,ele);
+    insertBT(tree,order,ele);
     printf("\nLevel order after insertion is : ");
     levelorder(tree);
 }
 /*
                         2
+                       /   \
+                      3     4
+                     / \    / 
+                    8   9   5  
                        / \
-                      3   4
-                     / \   \
-                    8   9   7
+                      1   10
+                
 */

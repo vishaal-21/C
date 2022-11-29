@@ -32,9 +32,10 @@ void enqueue(Queue *q, Node* temp)
 }
 //-------------------------------------------------------------------------//
 //-----------------------NODE CREATION-----------------------------------//
-Node* getnode()
+Node* getnode(int x)
 {
     Node* newNode=(Node*)malloc(sizeof(Node));
+    newNode->data=x;
     newNode->right=NULL;
     newNode->left=NULL;
     return newNode;
@@ -104,8 +105,7 @@ Node* recursiveCreateBT(int item)
     int x;
     if(item!=-1)
     {
-        Node* temp=getnode();
-        temp->data=item;
+        Node* temp=getnode(item);
 
         printf("Enter left child of %d : ",item);
         scanf("%d",&x);
