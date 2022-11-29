@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<math.h>
-#include "insert_functions.h"
+#include "SLLfunctions.c"
 void main()
 {
     int n,i,item;

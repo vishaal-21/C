@@ -43,15 +43,15 @@ struct node* sort(struct node* head)
             if(ptr->marks < ptr1->marks)
             {
                 strcpy(tempname ,ptr->name);
-                strcpy(ptr->name ,ptr1->name);
-                strcpy(ptr1->name ,tempname);
-
                 tempnum = ptr->rno;
-                ptr->rno = ptr1->rno;
-                ptr1->rno = tempnum;
-
                 tempmarks = ptr->marks;
+
+                strcpy(ptr->name ,ptr1->name);
+                ptr->rno = ptr1->rno;
                 ptr->marks = ptr1->marks;
+
+                strcpy(ptr1->name ,tempname);
+                ptr1->rno = tempnum;
                 ptr1->marks = tempmarks;
             }
             ptr1=ptr1->next;

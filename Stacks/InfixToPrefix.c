@@ -67,7 +67,7 @@ void main()
         case '*':
         case '/':
         case '^':
-            while(precedence(st.arr[st.top])>=precedence(ch))
+            while(precedence(st.arr[st.top])>precedence(ch))
             {
                 prefix[k++]=pop(&st);
             }

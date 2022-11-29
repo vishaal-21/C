@@ -5,51 +5,44 @@
 #include "insert_functions.h"
 struct node* merge(struct node* list1, struct node* list2)
 {
-    struct node* ptr1=list1;
-    struct node* ptr2=list2;
+    struct node* l1z=list1;
 
-    struct node* ptr = list1;
-    struct node* q=list1;
-    struct node* p;
-
-
+    struct node* p=list1;
+    struct node* q=NULL;
     while(list2!=NULL)
     {
-        q=ptr1;
-        p=NULL;
-        while(q!=NULL)
+        while(p!=NULL)
         {
-            if(q->data>=list2->data)
+            if(p->data>=list2->data)
             {
                 struct node* temp=list2;
-                if(q==ptr1)
+                if(q==NULL)
                 {
-                    temp->next=q;
-                    ptr1=temp;
+                    temp->next=p;
+                    l1=temp;
                 }
-                else if(q->next==NULL)
+                else if(p->next==NULL)
                 {
                     p->next=temp;
                     temp->next=NULL;
                 }
                 else
                 {
-                    temp->next=q;
-                    p->next=temp;
-                    p=p->next;
+                    q->next=temp;
+                    temp->next=p;
                 }
                 break;
             }
             else
             {
-                p=q;
-                q=q->next;
+                q=p;
+                p=p->next;
             }
         }
         list2=list2->next;
     }
 
-    return list1;
+    return l1;
 }
 void main()
 {
