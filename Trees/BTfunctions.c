@@ -7,7 +7,7 @@ typedef struct node
     struct node *right;
 }Node;
 
-//QUEUE FUNCTIONS CREATION------------------------------------------------//
+//----------------------QUEUE FUNCTIONS CREATION-----------------------------------//
 typedef struct 
 {
     Node* arr[50];
@@ -31,7 +31,7 @@ void enqueue(Queue *q, Node* temp)
     q->arr[++q->rear]=temp;
 }
 //-------------------------------------------------------------------------//
-//NODE CREATION
+//-----------------------NODE CREATION-----------------------------------//
 Node* getnode()
 {
     Node* newNode=(Node*)malloc(sizeof(Node));
@@ -40,7 +40,7 @@ Node* getnode()
     return newNode;
 }
 //-----------------------------TRAVERSALS------------------------------------//
-//INORDER
+//<---------------------------INORDER-------------------------------->
 void inorder(Node* root)
 {
     if(root)
@@ -51,7 +51,7 @@ void inorder(Node* root)
     }
 }
 
-//PREORDER
+//<----------------------------PREORDER------------------------------->
 void preorder(Node* root)
 {
     if(root)
@@ -62,7 +62,7 @@ void preorder(Node* root)
     }
 }
 
-//POSTORDER
+//<----------------------------POSTORDER------------------------------>
 void postorder(Node* root)
 {
     if(root)
@@ -73,7 +73,7 @@ void postorder(Node* root)
     }
 }
 
-//LEVEL ORDER
+//<----------------------------LEVEL ORDER----------------------------->
 void levelorder(Node* root)
 {
     Queue q;
@@ -98,7 +98,7 @@ void levelorder(Node* root)
     }
 }
 //------------------------------------------------------------------------------//
-//CREATING BT UISNG RECURSION
+//----------------------CREATING BT USING RECURSION--------------------------//
 Node* recursiveCreateBT(int item)
 {
     int x;
@@ -120,34 +120,3 @@ Node* recursiveCreateBT(int item)
     else
         return NULL;
 }
-//-----------------------------------------------------------------------------//
-
-void main()
-{
-    Node* tree=NULL;
-
-    int root;
-    printf("Enter value of root node : ");
-    scanf("%d",&root);
-
-    tree=recursiveCreateBT(root);
-
-    printf("Inorder is : ");
-    inorder(tree);
-
-    printf("\nPreoder is : ");
-    preorder(tree);
-
-    printf("\nPostorder is : ");
-    postorder(tree);
-
-    printf("\nLevel order is : ");
-    levelorder(tree);
-}
-/*
-                        2
-                       / \
-                      3   4
-                     / \   \
-                    8   9   7
-*/
