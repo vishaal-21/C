@@ -56,7 +56,7 @@ void main()
     printf("\nLevel order is : ");
     levelorder(tree);
 
-    printf("\nHeight of tree is %d",height(tree));
-    printf("\nNumber of nodes tree is %d",nodecount(tree));
-    printf("\nNumber of leafs in tree is %d",leafcount(tree));
+    printf("\nHeight of tree : %d",height(tree));
+    printf("\nNumber of nodes : %d",nodecount(tree));
+    printf("\nNumber of leafs : %d",leafcount(tree));
 }
