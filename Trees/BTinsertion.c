@@ -9,13 +9,13 @@ void insertBT(Node* root, char order[], int ele)
     Node* currNode=root;
     int i=0;
 
-    while(currNode!=NULL && order[i]!='\0')
+    while(currNode && order[i]!=NULL)
     {
         parent=currNode;
-        if(order[i]=='L' || order[i]=='l')
+        if(order[i]=='l' || order[i]=='L')
             currNode=currNode->left;
-        if(order[i]=='R' || order[i]=='r')
-            currNode=currNode->left;
+        else if(order[i]=='r' || order[i]=='R')
+            currNode=currNode->right;
         i++;
     }
     if((currNode!=NULL) || (order[i]!='\0'))
