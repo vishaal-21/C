@@ -54,60 +54,65 @@ Node* insertEnd(Node *head, int item)
 }
 
 // inserting an element at given index
-// Node* insertBetween(Node *head, int item, int index)
-// {
-//     Node* ptr=getnode();
-//     ptr->data=item;
+Node* insertBetween(Node *head, int item, int index)
+{
+    Node* ptr=getnode();
+    ptr->data=item;
 
-//     Node *temp=head;
-//     int i;
-//     for(i=0;i<index-1;i++)
-//         temp=temp->next;
+    Node *temp=head;
+    int i;
+    for(i=0;i<index-1;i++)
+        temp=temp->next;
 
-//     ptr->next=temp->next;
-//     temp->next=ptr;
-//     return head;
-// }
+    ptr->next=temp->next;
+    temp->next=ptr;
+    return head;
+}
 
-// // deleting from the beginning
-// Node* deleteFront(Node *head)
-// {
-//     Node *temp = head;
-//     temp = temp->next;
-//     head = temp;
-//     return head;
-// }
+// deleting from the beginning
+Node* deleteFront(Node *head)
+{
+    Node *ptr = (Node *)malloc(sizeof(Node));
 
-// // deleting from the end
-// Node* deleteEnd(Node *head)
-// {
-//     Node *ptr = (Node *)malloc(sizeof(Node));
+    Node *p = head;
 
-//     Node *p = head;
+    while (p->next != head)
+        p = p->next;
 
-//     while ((p->next)->next != NULL)
-//         p = p->next;
+    head=(p->next)->next;
+    return head;
+}
 
-//     p->next = NULL;
-//     return head;
-// }
+// deleting from the end
+Node* deleteEnd(Node *head)
+{
+    Node *ptr = (Node *)malloc(sizeof(Node));
 
-// // deleting from a given index
-// Node* deleteIndex(Node *head, int index)
-// {
-//     Node* temp1=head;
-//     Node* temp2;
+    Node *p = head;
 
-//     int i;
-//     for(i=0;i<index;i++)
-//     {
-//         temp2=temp1;
-//         temp1=temp1->next;
-//     }
+    while ((p->next)->next != head)
+        p = p->next;
 
-//     temp2->next=temp1->next;
-//     return head;
-// }
+    p->next = head;
+    return head;
+}
+
+// deleting from a given index
+Node* deleteIndex(Node *head, int index)
+{
+    Node* temp1=head;
+    Node* temp2;
+
+    int i;
+    for(i=0;i<index;i++)
+    {
+        temp2=temp1;
+        temp1=temp1->next;
+    }
+
+    temp2->next=temp1->next;
+    return head;
+}
 
 // display
 void display(Node *head)
