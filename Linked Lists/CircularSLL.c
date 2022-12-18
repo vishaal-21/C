@@ -20,12 +20,20 @@ Node* insertFirst(Node *head, int item)
     Node *ptr = getnode();
     ptr->data = item;
 
-    while(temp->next!=head)
-        temp=temp->next;
+    if(head==NULL)
+    {
+        head=ptr;
+        ptr->next=head;
+    }
+    else
+    {
+        while(temp->next!=head)
+            temp=temp->next;
 
-    temp->next=ptr;
-    ptr->next = head;
-    head = ptr;
+        temp->next=ptr;
+        ptr->next = head;
+        head = ptr;
+    }
     return head;
 }
 
