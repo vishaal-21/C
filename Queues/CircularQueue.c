@@ -9,7 +9,7 @@ void insertcq(Queue* q)
 {
     int item;
 
-    if((q->front==0 && q->rear==q->size-1) || (q->front==q->rear+1))
+    if(q->front==(q->rear+1)%q->size)
         printf("Queue is full");
     else
     {
