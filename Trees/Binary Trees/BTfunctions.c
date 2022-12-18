@@ -51,7 +51,6 @@ void inorder(Node* root)
         inorder(root->right);
     }
 }
-
 //<----------------------------PREORDER------------------------------->
 void preorder(Node* root)
 {
